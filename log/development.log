@@ -1,0 +1,6 @@
+  [1m[36m (19.2ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3)[0m
+  [1m[35m (81.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar (255 character) NOT NULL) 
+  [1m[36m (17.4ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3)[0m
+  [1m[35m (36.3ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'schema_migrations' AND index_category > 2
+  [1m[36m (111.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (16.6ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3)
