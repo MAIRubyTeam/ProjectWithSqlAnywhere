@@ -4,3 +4,354 @@
   [1m[35m (36.3ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'schema_migrations' AND index_category > 2
   [1m[36m (111.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
   [1m[35m (16.6ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3)
+  [1m[36m (4.2ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)[0m
+  [1m[35m (4.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar (255) NOT NULL) 
+  [1m[36m (2.0ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)[0m
+  [1m[35m (4.0ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'schema_migrations' AND index_category > 2
+  [1m[36m (3.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35m (2.5ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)
+  [1m[36m (2.6ms)[0m  [1mselect 1[0m
+  [1m[36m (3.0ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)[0m
+  [1m[35m (1.8ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)
+  [1m[36m (3.1ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)[0m
+  [1m[35m (2.0ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE creator NOT IN (0,3,5)
+  [1m[36mActiveRecord::SchemaMigration Load (1.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations" [0m
+Migrating to Init (20150401074550)
+  [1m[35m (4.0ms)[0m  CREATE TABLE "renew_url_type" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "name" varchar (255)) 
+  [1m[36m (5.2ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_url_type' AND index_category > 2[0m
+  [1m[35m (1.4ms)[0m  CREATE UNIQUE INDEX "index_renew_url_type_on_name" ON "renew_url_type" ("name")
+  [1m[36m (1.5ms)[0m  [1mCREATE TABLE "renew_user_group" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "name" varchar (255)) [0m
+  [1m[35m (3.0ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_user_group' AND index_category > 2
+  [1m[36m (1.1ms)[0m  [1mCREATE UNIQUE INDEX "index_renew_user_group_on_name" ON "renew_user_group" ("name")[0m
+  [1m[35m (1.1ms)[0m  CREATE TABLE "renew_users" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "name" varchar (255)) 
+  [1m[36m (3.1ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_users' AND index_category > 2[0m
+  [1m[35m (1.0ms)[0m  CREATE UNIQUE INDEX "index_renew_users_on_name" ON "renew_users" ("name")
+  [1m[36m (1.3ms)[0m  [1mCREATE TABLE "renew_users_groups" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "renew_user_id" integer, "renew_user_group_id" integer) [0m
+  [1m[35m (3.2ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_users_groups' AND index_category > 2
+  [1m[36m (1.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_groups_on_user_id_and_user_group_id" ON "renew_users_groups" ("renew_user_id", "renew_user_group_id")[0m
+  [1m[35m (1.6ms)[0m  CREATE TABLE "renew_url" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "url_pattern" varchar (255), "name" varchar (255), "url_type_id" integer, "sorder" integer) 
+  [1m[36m (2.4ms)[0m  [1mCREATE TABLE "renew_users_urls" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "renew_user_group_id" integer, "renew_user_url_id" integer) [0m
+  [1m[35m (2.9ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_users_urls' AND index_category > 2
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_urls_on_user_group_id_and_url_id" ON "renew_users_urls" ("renew_user_group_id", "renew_user_url_id")[0m
+  [1m[35m (1.0ms)[0m  CREATE TABLE "renew_menu_tree" ("id" integer, "parent" integer) 
+  [1m[36m (2.7ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_menu_tree' AND index_category > 2[0m
+  [1m[35m (1.1ms)[0m  CREATE UNIQUE INDEX "index_renew_menu_tree_on_id_and_parent" ON "renew_menu_tree" ("id", "parent")
+  [1m[36m (2.7ms)[0m  [1mCREATE TABLE "sessions" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "session_id" varchar (255) NOT NULL, "data" long varchar, "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35m (3.6ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'sessions' AND index_category > 2
+  [1m[36m (1.0ms)[0m  [1mCREATE UNIQUE INDEX "index_sessions_on_session_id" ON "sessions" ("session_id")[0m
+  [1m[35m (3.3ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'sessions' AND index_category > 2
+  [1m[36m (2.9ms)[0m  [1mSELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_sessions_on_session_id'[0m
+  [1m[35m (1.1ms)[0m  CREATE  INDEX "index_sessions_on_updated_at" ON "sessions" ("updated_at")
+  [1m[36m (1.7ms)[0m  [1mCREATE TABLE "renew_page_content" ("id" INTEGER PRIMARY KEY DEFAULT AUTOINCREMENT NOT NULL, "page_part_id" integer, "renew_url_id" integer, "html" long varchar, "width" integer, "height" integer) [0m
+  [1m[35mskip_logging (6.1ms)[0m  SELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'schema_migrations'
+
+  [1m[36mSQL (1.6ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20150401074550"]]
+  [1m[35m (0.8ms)[0m  SELECT @@IDENTITY
+  [1m[36m (3.5ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE table_type in ('base', 'view') and creator NOT IN (0,3,5)[0m
+  [1m[35m (2.7ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE table_type in ('base', 'view') and creator NOT IN (0,3,5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations" [0m
+  [1m[35mskip_logging (3.2ms)[0m  SELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'schema_migrations'
+
+  [1m[36m (1.9ms)[0m  [1mSELECT table_name FROM SYS.SYSTABLE WHERE table_type in ('view') and creator NOT IN (0,3,5)[0m
+  [1m[35m (2.1ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE table_type in ('base', 'view') and creator NOT IN (0,3,5)
+  [1m[36mActiveRecord::SchemaMigration Load (0.9ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations" [0m
+  [1m[35m (2.9ms)[0m  SELECT table_name FROM SYS.SYSTABLE WHERE table_type in ('base', 'view') and creator NOT IN (0,3,5)
+  [1m[36mskip_logging (3.6ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_menu_tree'
+[0m
+  [1m[35m (2.5ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_menu_tree' and in_primary_key = 'Y'
+  [1m[36m (3.2ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_menu_tree' AND index_category > 2[0m
+  [1m[35m (3.2ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_renew_menu_tree_on_id_and_parent'
+  [1m[36mskip_logging (3.8ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_page_content'
+[0m
+  [1m[35m (2.4ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_page_content' and in_primary_key = 'Y'
+  [1m[36m (2.4ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_page_content' AND index_category > 2[0m
+  [1m[35mskip_logging (2.7ms)[0m  SELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_url'
+
+  [1m[36m (2.0ms)[0m  [1mSELECT cname from SYS.SYSCOLUMNS where tname = 'renew_url' and in_primary_key = 'Y'[0m
+  [1m[35m (2.3ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_url' AND index_category > 2
+  [1m[36mskip_logging (2.9ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_url_type'
+[0m
+  [1m[35m (2.1ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_url_type' and in_primary_key = 'Y'
+  [1m[36m (2.8ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_url_type' AND index_category > 2[0m
+  [1m[35m (2.7ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_renew_url_type_on_name'
+  [1m[36mskip_logging (3.1ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_user_group'
+[0m
+  [1m[35m (2.1ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_user_group' and in_primary_key = 'Y'
+  [1m[36m (3.0ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_user_group' AND index_category > 2[0m
+  [1m[35m (2.7ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_renew_user_group_on_name'
+  [1m[36mskip_logging (3.3ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_users'
+[0m
+  [1m[35m (2.3ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_users' and in_primary_key = 'Y'
+  [1m[36m (2.6ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_users' AND index_category > 2[0m
+  [1m[35m (2.0ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_renew_users_on_name'
+  [1m[36mskip_logging (2.9ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_users_groups'
+[0m
+  [1m[35m (2.7ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_users_groups' and in_primary_key = 'Y'
+  [1m[36m (2.8ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_users_groups' AND index_category > 2[0m
+  [1m[35m (2.4ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_users_groups_on_user_id_and_user_group_id'
+  [1m[36mskip_logging (2.9ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'renew_users_urls'
+[0m
+  [1m[35m (2.3ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'renew_users_urls' and in_primary_key = 'Y'
+  [1m[36m (2.8ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'renew_users_urls' AND index_category > 2[0m
+  [1m[35m (2.0ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_users_urls_on_user_group_id_and_url_id'
+  [1m[36mskip_logging (2.9ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'rs_lastcommit'
+[0m
+  [1m[35m (3.0ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'rs_lastcommit' and in_primary_key = 'Y'
+  [1m[36m (3.3ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'rs_lastcommit' AND index_category > 2[0m
+  [1m[35mskip_logging (3.3ms)[0m  SELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'rs_threads'
+
+  [1m[36m (2.0ms)[0m  [1mSELECT cname from SYS.SYSCOLUMNS where tname = 'rs_threads' and in_primary_key = 'Y'[0m
+  [1m[35m (2.7ms)[0m  SELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'rs_threads' AND index_category > 2
+  [1m[36mskip_logging (3.5ms)[0m  [1mSELECT SYS.SYSCOLUMN.column_name AS name, 
+  if left("default",1)='''' then substring("default", 2, length("default")-2) // remove the surrounding quotes
+  else NULLIF(SYS.SYSCOLUMN."default", 'autoincrement') 
+  endif AS "default",
+  IF SYS.SYSCOLUMN.domain_id IN (7,8,9,11,33,34,35,3,27) THEN
+    IF SYS.SYSCOLUMN.domain_id IN (3,27) THEN
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ',' || SYS.SYSCOLUMN.scale || ')'
+    ELSE
+      SYS.SYSDOMAIN.domain_name || '(' || SYS.SYSCOLUMN.width || ')'
+    ENDIF
+  ELSE
+    SYS.SYSDOMAIN.domain_name 
+  ENDIF AS domain, 
+  IF SYS.SYSCOLUMN.nulls = 'Y' THEN 1 ELSE 0 ENDIF AS nulls
+FROM 
+  SYS.SYSCOLUMN 
+  INNER JOIN SYS.SYSTABLE ON SYS.SYSCOLUMN.table_id = SYS.SYSTABLE.table_id 
+  INNER JOIN SYS.SYSDOMAIN ON SYS.SYSCOLUMN.domain_id = SYS.SYSDOMAIN.domain_id
+WHERE
+  table_name = 'sessions'
+[0m
+  [1m[35m (2.6ms)[0m  SELECT cname from SYS.SYSCOLUMNS where tname = 'sessions' and in_primary_key = 'Y'
+  [1m[36m (2.7ms)[0m  [1mSELECT DISTINCT index_name, "unique" FROM SYS.SYSTABLE INNER JOIN SYS.SYSIDXCOL ON SYS.SYSTABLE.table_id = SYS.SYSIDXCOL.table_id INNER JOIN SYS.SYSIDX ON SYS.SYSTABLE.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id WHERE table_name = 'sessions' AND index_category > 2[0m
+  [1m[35m (2.3ms)[0m  SELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_sessions_on_session_id'
+  [1m[36m (2.1ms)[0m  [1mSELECT column_name FROM SYS.SYSIDX INNER JOIN SYS.SYSIDXCOL ON SYS.SYSIDXCOL.table_id = SYS.SYSIDX.table_id AND SYS.SYSIDXCOL.index_id = SYS.SYSIDX.index_id INNER JOIN SYS.SYSCOLUMN ON SYS.SYSCOLUMN.table_id = SYS.SYSIDXCOL.table_id AND SYS.SYSCOLUMN.column_id = SYS.SYSIDXCOL.column_id WHERE index_name = 'index_sessions_on_updated_at'[0m

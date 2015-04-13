@@ -9,12 +9,13 @@ default: &default
   pool: 5
   timeout: 5000
 
-development:
+development: &main
   adapter: sqlanywhere
-  server: test_db # This must match what you set as the -n directive when you started the database server
-  database: test_db # This must match the filename of your database file. E.G: If the filename is my_database.db then use "my_database"
-  host: localhost
+  server: test_db
+  database: test_db
   encoding: utf-8
+  username: DBA
+  password: sql
 
 # Warning: The database defined as "test" will be erased and
 # re-generated from your development database when you run "rake".
@@ -24,5 +25,4 @@ test:
   database: db/test.sqlite3
 
 production:
-  <<: *default
-  database: db/production.sqlite3
+  <<: *main
