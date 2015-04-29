@@ -1,0 +1,8 @@
+admin:
+  name: admin
+
+user:
+  name: user
+
+vip:
+  name: vip

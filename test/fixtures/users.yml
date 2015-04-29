@@ -1,0 +1,15 @@
+user_one:
+  name: user1
+  groups: admin
+
+user_two:
+  name: user2
+  groups: user
+
+user_three:
+  name: user3
+  groups: vip
+
+user_four:
+  name: user4
+  groups: [admin, vip]

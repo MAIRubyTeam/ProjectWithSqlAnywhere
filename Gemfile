@@ -48,3 +48,7 @@ gem "ransack"
 gem "prawn"
 gem "rmagick"
 gem "spreadsheet"
+
+group :development do
+  gem "rails-erd"
+end
