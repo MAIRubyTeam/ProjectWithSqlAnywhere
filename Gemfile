@@ -52,3 +52,7 @@ gem "spreadsheet"
 group :development do
   gem "rails-erd"
 end
+
+gem 'sinatra'
+gem 'shotgun'
+gem 'thin'

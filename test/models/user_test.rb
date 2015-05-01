@@ -7,7 +7,6 @@ class UserTest < ActiveSupport::TestCase
     end
 
     def test_save
-    	#user = users(:user_four)
     	user = User.new(
     		name: "Petya!!!!",
     		groups: [groups(:admin)]) 
